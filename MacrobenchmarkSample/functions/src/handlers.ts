@@ -1,5 +1,5 @@
-import { EventContext } from "firebase-functions";
-import { TestMatrix } from "firebase-functions/lib/providers/testLab";
+import { EventContext } from "firebase-functions/v1";
+import { TestMatrix } from "firebase-functions/v1/testLab";
 import { Storage } from "@google-cloud/storage";
 import { log } from "./logger";
 import { Benchmarks } from "./schema";
@@ -156,8 +156,10 @@ const readBenchmark = async (
 
 const googleStorage = () => {
   return new Storage({
-    maxRetries: 3,
-    autoRetry: true
+    retryOptions: {
+      maxRetries: 3,
+      autoRetry: true
+    }
   });
 };
 

@@ -1,4 +1,4 @@
-import * as F from "firebase-functions";
+import * as F from "firebase-functions/v1";
 
 import { firebaseTestLabHandler, firebaseTestLabHttpsHandler } from './handlers';
 
